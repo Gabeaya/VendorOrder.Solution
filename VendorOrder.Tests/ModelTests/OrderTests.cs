@@ -64,18 +64,18 @@ namespace VendorOrder.Tests
       Assert.AreEqual(updatedDescription, resultDescribe);
       Assert.AreEqual(updatedPrice, resultPrice);
     }
-    // [TestMethod]
-    // public void GetAll_ReturnsEmptyList_OrderList()
-    // {
-    //   // Arrange
-    //   List<Order> newOrder = new List<Order> { };
+    [TestMethod]
+    public void GetAll_ReturnsEmptyList_OrderList()
+    {
+      // Arrange
+      List<Order> newOrder = new List<Order> { };
 
-    //   // Act
-    //   List<Order> result = Order.GetAll();
+      // Act
+      List<Order> result = Order.GetAll();
 
-    //   // Assert
-    //   CollectionAssert.AreEqual(newOrder, result);
-    // }
+      // Assert
+      CollectionAssert.AreEqual(newOrder, result);
+    }
 
   }
 }
