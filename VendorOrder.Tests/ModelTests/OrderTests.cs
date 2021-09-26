@@ -1,12 +1,19 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 using VendorOrder.Models;
+using System;
 
 
-namespace VendorOrder.Tests
+
+namespace VendorOrder.Tests 
 {
   [TestClass]
-  public class OrderTests
+  public class OrderTests : IDisposable
   {
+    public void Dispose()
+    {
+      Order.ClearAll();
+    }
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
@@ -34,5 +41,41 @@ namespace VendorOrder.Tests
       Assert.AreEqual(price, instancePrice);
       Assert.AreEqual(date, instanceDate);
     }
+    [TestMethod]
+    public void SetDescriptionPrice_SetDescription_String()
+    {
+      //Arrange
+      string title = "Pan Dulces";
+      string description = "Twenty-five pounds of Mexican sweet bread.";
+      string price = "$150.00";
+      string date = "01/21/2016";
+      Order newOrder = new Order(title, description, price, date);
+
+      //Act
+      string updatedDescription = "Thirty pounds of Mexican sweet bread";
+      newOrder.Description = updatedDescription;
+      string resultDescribe = newOrder.Description;
+      string updatedPrice = "$175.00";
+      newOrder.Price = updatedPrice;
+      string resultPrice = newOrder.Price;
+
+
+      //Assert
+      Assert.AreEqual(updatedDescription, resultDescribe);
+      Assert.AreEqual(updatedPrice, resultPrice);
+    }
+    // [TestMethod]
+    // public void GetAll_ReturnsEmptyList_OrderList()
+    // {
+    //   // Arrange
+    //   List<Order> newOrder = new List<Order> { };
+
+    //   // Act
+    //   List<Order> result = Order.GetAll();
+
+    //   // Assert
+    //   CollectionAssert.AreEqual(newOrder, result);
+    // }
+
   }
 }
