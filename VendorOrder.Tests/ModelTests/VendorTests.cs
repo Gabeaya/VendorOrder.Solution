@@ -16,7 +16,7 @@ namespace VendorOrder.TestTools
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
       Vendor newVendor = new Vendor("test vendor");
-      Assert.AreEqual(typeof(Vendor),newVendor.GetType());
+      Assert.AreEqual(typeof(Vendor), newVendor.GetType());
     }
     [TestMethod]
     public void GetName_ReturnsName_String()
