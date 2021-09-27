@@ -1,0 +1,14 @@
+@using VendorOrder.Models;
+
+<h1>Welcome Pierre </h1>
+<ul>
+  @foreach (Order order in Model)
+  {
+    <li>@order.Title</li>
+    <li>@order.Description</li>
+    <li>@order.Price </li>
+    <li>@order.Date</li>
+  }
+  
+</ul>
+<a href="/orders/new">Add a new order.</a>
