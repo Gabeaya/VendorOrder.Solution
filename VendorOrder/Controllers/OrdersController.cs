@@ -23,5 +23,11 @@ namespace VendorOrder.Controllers
       Order myOrder = new Order(title, description, price, date);
       return RedirectToAction("Index");
     }
+    [HttpGet("/orders/{id}")]
+    public ActionResult Show(int id)
+    {
+      Order foundOrder= Order.Find(id);
+      return View(foundOrder);
+    }
   }
 }
