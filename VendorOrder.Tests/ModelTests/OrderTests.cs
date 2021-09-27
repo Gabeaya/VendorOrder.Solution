@@ -90,7 +90,7 @@ namespace VendorOrder.Tests
       string description2 = "Twenty-five pounds of Mexican sweet bread.";
       string price2 = "$150.00";
       string date2 = "01/21/2016";
-      Order newOrder2 = new Order(title, description, price, date);
+      Order newOrder2 = new Order(title2, description2, price2, date2);
       List<Order> newList = new List<Order> {newOrder1, newOrder2};
       
       //Act
@@ -115,6 +115,29 @@ namespace VendorOrder.Tests
 
       //Assert
       Assert.AreEqual(1, result);
+    }
+    [TestMethod]
+    public void Find_ReturnsCorrectOrderNumber_Order()
+    {
+      //Arrange
+      string title = "Pan Dulces";
+      string description = "Twenty-five pounds of Mexican sweet bread.";
+      string price = "$150.00";
+      string date = "01/21/2016";
+      Order newOrder1 = new Order(title, description, price, date);
+
+      string title2 = "Pan Dulces";
+      string description2 = "Twenty-five pounds of Mexican sweet bread.";
+      string price2 = "$150.00";
+      string date2 = "01/21/2016";
+      Order newOrder2 = new Order(title2, description2, price2, date2);
+      List<Order> newList = new List<Order> {newOrder1, newOrder2};
+
+      //Act
+      Order result = Order.Find(2);
+
+      //Assert
+      Assert.AreEqual(newOrder2, result);
     }
   }
 }
