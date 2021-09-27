@@ -13,7 +13,7 @@ namespace VendorOrder.Controllers
       return View(allOrders);
     }
     [HttpGet("/orders/new")]
-    public ActionResult CreateForm()
+    public ActionResult New()
     {
       return View();
     }
