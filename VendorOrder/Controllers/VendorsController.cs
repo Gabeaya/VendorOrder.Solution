@@ -34,6 +34,7 @@ namespace VendorOrder.Controllers
       model.Add("orders", vendorOrders);
       return View(model);
     }
+    //this one creates new Orders within the given Vendor
     [HttpPost("/vendors/{vendorId}/orders")]
     public ActionResult Create(int vendorId, string title, string description, string price, string date)
     {
