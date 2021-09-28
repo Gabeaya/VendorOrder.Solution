@@ -30,21 +30,21 @@ namespace VendorOrder.Controllers
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor selectedVendor = Vendor.Find(id);
       List<Order> vendorOrders = selectedVendor.Orders;
-      model.Add("vendor", selectedVendor);
+      model.Add("vendors", selectedVendor);
       model.Add("orders", vendorOrders);
       return View(model);
     }
-    //this one creates new Orders within the given Vendor
+    //this one creates new Orders within the given Vendor, not new Vendors
     [HttpPost("/vendors/{vendorId}/orders")]
     public ActionResult Create(int vendorId, string title, string description, string price, string date)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
-      Vendor foundVender = Vendor.Find(vendorId);
-      Order myOrder = new Order(title, description, price, date);
-      foundVender.AddOrder(newOrder);
-      List<Order> vendorOrders = foundVender.Orders;
+      Vendor foundVendor = Vendor.Find(vendorId);
+      Order newOrder = new Order(title, description, price, date);
+      foundVendor.AddOrder(newOrder);
+      List<Order> vendorOrders = foundVendor.Orders;
       model.Add("orders", vendorOrders);
-      model.Add("vendors", foundVender);
+      model.Add("vendors", foundVendor);
       return View("Show", model);
     }
   }
