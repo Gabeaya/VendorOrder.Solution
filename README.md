@@ -22,10 +22,11 @@ _A web application that uses TDD, classes, constructors, and mvc in order to all
 * _Navigate the directory: (cd top name directory)_
 * _Open in Vs code: code ._
 * _Run: dotnet restore VendorOrder_
-* _The line above will install our csproj packages._
+* _The line above will create the obj directory._
 * _Run: dotnet build VendorOrder_
-* _The line above will compile and create obj and bin directories._
+* _The line above will compile and create bin directories._
 * _Run: dotnet run in order to see the application in the browser._
+* _Run: dotnet test in VendorOrder.Tests to test the Models functionality._
 
 ## License :clipboard:
 MIT &copy; 2021 _Gabriel Ayala_
